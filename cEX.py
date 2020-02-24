@@ -1,5 +1,5 @@
 #! python3
-#! Version 0.1 by gbn1
+#! Version 0.2 by gbn1
 #! https://github.com/gbrn1/cEX
 from modules import cex128
 from modules import banners
@@ -61,12 +61,22 @@ class MAIN:
         if q.lower() == 'y':
             os.remove(file_name)
             print('[*] FIle removed!\n')
+
+    def encrypt(self, text):
+        passw = self.get_password()
+        encrypted = cex128.cex128(passw).encrypt(text)
+        print("Encrypted text: %s\n" %encrypted)
+
+    def decrypt(self, text):
+        passw = self.get_password()
+        decrypted = cex128.cex128(passw).decrypt(text)
+        print("Decrypted text: %s\n" %decrypted)
             
 
     def menu(self):
         self.clear()
         banners.banner()
-        options = ["[1] Read encrypted file", "[2] Encrypt file", "\n[99] Exit"]
+        options = ["[1] Read encrypted file", "[2] Encrypt file", "[3] Encrypt text", "[4] Decrypt text", "\n[99] Exit"]
         while 1:
             for o in options:
                 print(o)
@@ -83,6 +93,12 @@ class MAIN:
                     self.encrypt_file(fn)
                 else:
                     print("[-] File not found!")
+            elif cmd == "3":
+                text = input("Text to encrypt: ")
+                self.encrypt(text)
+            elif cmd == "4":
+                text = input("Text to decrypt: ")
+                self.decrypt(text)
             elif cmd == "99":
                 quit()
             else:
