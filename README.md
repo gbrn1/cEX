@@ -2,7 +2,7 @@
 
 Copyright 2020 The Crypto-Explorer (cEX)
 
-Written by: Gabriel Barone (gbrn1)
+Written by: Gabriel Barone ([gbrn1](https://github.com/gbrn1))
 
 DISCLAIMER: *This is only for testing purposes and can only be used where strict consent has been given. Do not use this for illegal purposes, period.*
 
